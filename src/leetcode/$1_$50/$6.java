@@ -1,4 +1,4 @@
-package $1_$50;
+package leetcode.$1_$50;
 
 public class $6 {
     public String convert(String s, int numRows) {
