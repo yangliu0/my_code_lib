@@ -1,4 +1,4 @@
-package $1_$50;
+package leetcode.$1_$50;
 
 public class $5 {
     public String longestPalindrome(String s) {

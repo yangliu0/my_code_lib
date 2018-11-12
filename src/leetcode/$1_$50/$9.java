@@ -1,4 +1,4 @@
-package $1_$50;
+package leetcode.$1_$50;
 
 public class $9 {
     public boolean isPalindrome(int x) {

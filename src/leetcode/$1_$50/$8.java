@@ -1,4 +1,4 @@
-package $1_$50;
+package leetcode.$1_$50;
 
 public class $8 {
     public int myAtoi(String str) {

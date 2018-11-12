@@ -1,4 +1,4 @@
-package $1_$50;
+package leetcode.$1_$50;
 
 // 1. Two Sum
 
