@@ -16,7 +16,7 @@ public class $8 {
             this.val = val;
         }
     }
-    
+
     public TreeLinkNode GetNext(TreeLinkNode pNode) {
         if (pNode == null) {
             return null;
@@ -38,7 +38,7 @@ public class $8 {
                 pCurrent = pParent;
                 pParent = pParent.next;
             }
-            // 如果结点是父结点的左子结点，next为parent
+            // 如果结点是父结点的左子结点，next即为parent
             next = pParent;
         }
         return next;
