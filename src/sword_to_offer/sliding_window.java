@@ -16,12 +16,14 @@ public class sliding_window {
         }
 
         int begin;
+        // 保存index
         ArrayDeque<Integer> q = new ArrayDeque<>();
         for (int i = 0; i < num.length; i++) {
             begin = i - size + 1;
             if (q.isEmpty()) {
                 q.add(i);
             } else if (begin > q.peekFirst()) {
+                // 开始位置大于最大元素，最大值过期
                 q.pollFirst();
             }
 
