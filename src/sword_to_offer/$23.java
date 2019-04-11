@@ -41,6 +41,7 @@ public class $23 {
         return pNode1;
     }
 
+    // 找到环中一个结点
     private ListNode meetingNode(ListNode pHead) {
         if (pHead == null) {
             return null;
