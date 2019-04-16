@@ -48,12 +48,14 @@ public class $33 {
             int mid = left + ((right - left) >> 1);
             if (nums[mid] == target) return mid;
             if (nums[mid] < nums[right]) {
+                // 右侧有序
                 if (nums[mid] < target && nums[right] >= target) {
                     left = mid + 1;
                 } else {
                     right = mid - 1;
                 }
             } else {
+                // 左侧有序
                 if (nums[mid] > target && nums[right] < target) {
                     right = mid - 1;
                 } else {
