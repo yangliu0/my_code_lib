@@ -44,6 +44,4 @@ public class $62 {
 
         return list.size() == 1 ? list.get(0) : -1;
     }
-
-
 }

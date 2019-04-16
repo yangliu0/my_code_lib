@@ -50,7 +50,7 @@ public class LCS {
             printLCS(array, str1, str2, i, j - 1);
         }
 
-        return stringBuilder.reverse().toString();
+        return stringBuilder.toString();
     }
 
 
