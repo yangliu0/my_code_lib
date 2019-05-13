@@ -35,6 +35,48 @@ public class $10 {
         return fibNum;
     }
 
+    // logN解法
+    public long fibonacci3(int n) {
+        if (n == 0) {
+            return 0;
+        } else if (n == 1) {
+            return 1;
+        }
+
+        int[][] tmp = recur_fib(n);
+        return tmp[0][1];
+    }
+
+    private int[][] recur_fib(int n) {
+        if (n <= 1) {
+            return new int[][]{{1, 1}, {1, 0}};
+        }
+
+        if ((n & 0x1) == 0) {
+            int[][] tmp = recur_fib(n / 2);
+            tmp = calMatrix(tmp, tmp);
+            return tmp;
+        } else {
+            // 奇数
+            int[][] tmp = recur_fib(n / 2);
+            tmp = calMatrix(tmp, tmp);
+            tmp = calMatrix(tmp, new int[][]{{1, 1}, {1, 0}});
+            return tmp;
+        }
+    }
+
+    private int[][] calMatrix(int[][] m1, int[][] m2) {
+        int[][] result = new int[2][2];
+        for (int i = 0; i < 2; ++i) {
+            for (int k = 0; k < 2; ++k) {
+                for (int j = 0; j < 2; ++j) {
+                    result[i][j] += m1[i][k] * m2[k][j];
+                }
+            }
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
         System.out.println(fibonacci2(50));

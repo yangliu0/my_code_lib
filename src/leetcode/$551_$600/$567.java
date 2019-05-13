@@ -21,6 +21,7 @@ public class $567 {
             return true;
         }
 
+        // s2中只取s1长度的部门进行计算，超出窗口的部分需要恢复
         for (int i = len1; i < len2; i++) {
             count[s2.charAt(i) - 'a']--;
             count[s2.charAt(i - len1) - 'a']++;

@@ -28,8 +28,8 @@ public class $28 {
         getNextVal(needle, next);
         while (i < len1 && j < len2) {
             if (j == -1 || haystack.charAt(i) == needle.charAt(j)) {
-                i++;
-                j++;
+                ++i;
+                ++j;
             } else {
                 j = next[j];
             }
@@ -47,12 +47,14 @@ public class $28 {
         int k = -1, j = 0;
         while (j < len - 1) {
             if (k == -1 || needle.charAt(j) == needle.charAt(k)) {
-                j++;
-                k++;
+                ++j;
+                ++k;
 
                 if (needle.charAt(j) != needle.charAt(k)) {
                     next[j] = k;
                 } else {
+                    // 不可以让p[j] == p[next[j]]
+                    // p[j]匹配失败后，下一次就是p[next[j]]来进行匹配了
                     next[j] = next[k];
                 }
             } else {
