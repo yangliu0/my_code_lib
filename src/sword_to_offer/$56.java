@@ -16,15 +16,10 @@ public class $56 {
             resultOR ^= array[i];
         }
 
-        String resultORStr = String.valueOf(resultOR);
-        char[] ch = resultORStr.toCharArray();
-
         int indexBit1 = 0;
-        for (int j = ch.length - 1; j >= 0; --j) {
-            if ((Character.getNumericValue(ch[j]) & 1) != 0) {
-                break;
-            }
-            ++indexBit1;
+        while ((resultOR & 1) == 0) {
+            resultOR >>= 1;
+            indexBit1++;
         }
 
         num1[0] = 0;
