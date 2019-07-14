@@ -49,9 +49,11 @@ public class $3 {
         while (start <= end) {
             // 二分统计思想
             int mid = start + ((end - start) >> 1);
+            // 首先分为1~mid 和 mid+1~length-1
             int count = countRange(numbers, length, start, mid);
             if (start == end) {
                 if (count > 1) {
+                    // 遇到重复值
                     return start;
                 } else {
                     break;

@@ -1,7 +1,7 @@
 package sort;
 
 // 堆排序
-
+// 每次把最大数放到堆顶
 public class HeapSort {
     public static void heapSort(int[] arr) {
         if (arr == null || arr.length < 2) {
