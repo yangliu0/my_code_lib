@@ -24,7 +24,7 @@ public class $47 {
                 }
 
                 if (j > 0) {
-                    left = dp[i][ j - 1];
+                    left = dp[i][j - 1];
                 }
 
                 dp[i][j] = Math.max(left, up) + values[i][j];

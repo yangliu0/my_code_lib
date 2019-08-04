@@ -40,6 +40,8 @@ public class $51 {
     private boolean validate(char[][] board, int x, int y) {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < y; ++j) {
+                // x + j == y + i -> 左上到右下一条线
+                // x + y == i + j -> 左下到右上一条线
                 if (board[i][j] == 'Q' && (x + j == y + i || x + y == i + j || x == i)) {
                     return false;
                 }

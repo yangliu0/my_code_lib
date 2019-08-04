@@ -62,4 +62,30 @@ public class $53 {
         }
         return getLastK(array, k, start, end);
     }
+
+    // 用大于等于的二分查找解决
+    public int GetNumberOfK1(int[] array, int k) {
+        int num = 0;
+        if (array != null && array.length > 0) {
+            int first = getGreatEqual(array, k, 0, array.length);
+            int last = getGreatEqual(array, k + 1, 0, array.length) - 1;
+            if (first != array.length) {
+                num = last - first + 1;
+            }
+        }
+        return num;
+    }
+
+    private int getGreatEqual(int[] array, int k, int start, int end) {
+        int mid;
+        while (start < end) {
+            mid = start + (end - start) / 2;
+            if (array[mid] < k) {
+                start = mid + 1;
+            } else {
+                end = mid;
+            }
+        }
+        return start;
+    }
 }

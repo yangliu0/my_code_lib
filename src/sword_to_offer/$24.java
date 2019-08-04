@@ -16,18 +16,15 @@ public class $24 {
     }
 
     public ListNode ReverseList(ListNode head) {
-        ListNode pre = null;
-        ListNode current = head;
-        ListNode reversedHead = null;
-        while (current != null) {
-            ListNode next = current.next;
-            if (next == null) {
-                reversedHead = current;
-            }
-            current.next = pre;
-            pre = current;
-            current = next;
+        ListNode prev = null;
+        ListNode curr = head;
+        ListNode next;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
         }
-        return reversedHead;
+        return prev;
     }
 }

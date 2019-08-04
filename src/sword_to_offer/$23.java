@@ -5,7 +5,7 @@ package sword_to_offer;
  */
 // 链表中环的入口
 public class $23 {
-    public class ListNode {
+    public static class ListNode {
         int val;
         ListNode next = null;
 
@@ -65,6 +65,36 @@ public class $23 {
             }
         }
         return null;
+    }
+
+    // 直接将一个结点还原到head，然后跟环内结点一起，一次走一步，相交点即为入环口
+    public ListNode EntryNodeOfLoop1(ListNode pHead) {
+        ListNode meetingNode = meetingNode(pHead);
+        if (meetingNode == null) {
+            return null;
+        }
+
+        ListNode slow = pHead;
+        while (slow != meetingNode) {
+            slow = slow.next;
+            meetingNode = meetingNode.next;
+        }
+        return slow;
+    }
+
+    public static void main(String[] args) {
+        ListNode node1 = new ListNode(1);
+        ListNode node2 = new ListNode(2);
+        ListNode node3 = new ListNode(3);
+        ListNode node4 = new ListNode(4);
+        ListNode node5 = new ListNode(5);
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+        node4.next = node5;
+        node5.next = node3;
+        $23 solution = new $23();
+        System.out.println(solution.EntryNodeOfLoop1(node1).val);
     }
 }
 

@@ -10,6 +10,7 @@ public class $48 {
         int curLength = 0;
         int maxLength = 0;
 
+        // 上一个字符出现的index
         int[] positions = new int[26];
         for (int i = 0; i < 26; i++) {
             positions[i] = -1;

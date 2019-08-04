@@ -11,31 +11,29 @@ import java.util.List;
 // Palindrome Partitioning
 public class $131 {
     public List<List<String>> partition(String s) {
-        List<List<String>> resultList = new ArrayList<>();
-        List<String> currList = new ArrayList<>();
-        dfs(s, 0, currList, resultList);
-        return resultList;
+        List<List<String>> res = new ArrayList<>();
+        backtrack(res, new ArrayList<>(), s, 0);
+        return res;
     }
 
-    private void dfs(String s, int pos, List<String> currList, List<List<String>> resultList) {
-        if (pos == s.length()) {
-            resultList.add(new ArrayList<>(currList));
-        } else {
-            for (int i = pos; i < s.length(); i++) {
-                if (isPal(s, pos, i)) {
-                    currList.add(s.substring(pos, i + 1));
-                    dfs(s, i + 1, currList, resultList);
-                    currList.remove(currList.size() - 1);
-                }
+    private void backtrack(List<List<String>> res, List<String> tmpList, String s, int start) {
+        if (start == s.length()) {
+            res.add(new ArrayList<>(tmpList));
+            return;
+        }
+
+        for (int i = start; i < s.length(); i++) {
+            if (isPalindrome(s, start, i)) {
+                tmpList.add(s.substring(start, i + 1));
+                backtrack(res, tmpList, s, i + 1);
+                tmpList.remove(tmpList.size() - 1);
             }
         }
     }
 
-    private boolean isPal(String s, int low, int high) {
-        while (low < high) {
-            if (s.charAt(low++) != s.charAt(high--)) {
-                return false;
-            }
+    private boolean isPalindrome(String s, int start, int end) {
+        while (start < end) {
+            if (s.charAt(start++) != s.charAt(end--)) return false;
         }
         return true;
     }
