@@ -23,7 +23,7 @@ public class $2 {
             l2 = l2 != null ? l2.next : null;
             carry = sum / 10;
             if (carry == 0) {
-                if ((l1 == null || l2 == null) && ((l1 == null) != (l2 == null))) {
+                if (((l1 == null) != (l2 == null))) {
                     current.next = l1 != null ? l1 : l2;
                     break;
                 }
